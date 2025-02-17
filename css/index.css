@@ -2,36 +2,93 @@
 * {
   box-sizing: border-box;
 }
+p {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
 .column {
-    float: left;
-    width: 50%;
-    padding: 10px;
     height: 50vh;
-
 }
 .row {
-    display: flex;
-    position: relative;
-    height: 100%;
+    grid-column: span 2;
+    height: 50vh;
 }
 #intro-left {
     background-color: teal;
-    width: 70%;
+    /* width: 70%; */
 }
 #intro-right {
     background-color: coral;
-    width: 30%;
+    /* width: 30%; */
 }
 #header-name {
     padding-left: 2vh;
+    font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     color: coral;
 }
 #profile-img {
     position: absolute;
     left: 70%; /* Moves the image halfway across */
-    top: 21.665%;
-    transform: translateX(-50%);
-    width: 20%; 
-    height: 56.67%;
+    top: 15%;
+    transform: translateX(-80%);
+    width: 256.8px; 
+    height: 203.8px;
+    object-fit: contain;  /* Maintains aspect ratio */
+    transition: width 0.1s ease, height 0.1s ease;
+}
+.intro-tag {
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: coral;
+
+} 
+.intro-p {
+    position: absolute;
+    width: 40%; /* Adjust the width of the parent container */
+    height: 35%; /* Set a fixed height for the container */
+    left: 10%;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    
+}
+
+@media (max-width: 1600px) {
+    #header-name {
+        padding-left: 2vh;
+        font-size: 2.5rem;
+        font-family: 'Roboto', sans-serif;
+        color: coral;
+    }
+    #profile-img {
+        position: absolute;
+        left: 70%; /* Moves the image halfway across */
+        top: 27%;
+        transform: translateX(-80%);
+        width: 15%; 
+        height: 46%;
+    }
+    #about-me {
+        display: inline-block;
+        font-size: 2rem;
+        position: absolute;
+        left: 20%;
+        color: coral;
+    
+    } 
+}
+/* For screens smaller than 768px (e.g., mobile devices) */
+@media (max-width: 768px) {
+
+}
+
+/* For very small screens (e.g., portrait mode on mobile) */
+@media (max-width: 480px) {
+
 }
