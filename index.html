@@ -34,6 +34,97 @@
     h3 {
       font-family: 'Raleway', sans-serif;
     }
+    .marquee {
+    display: flex;
+    block-size: var(--marquee-item-height);
+    margin-block: var(--marquee-item-height);
+    position: relative;
+    overflow-x: hidden;
+    mask-image: linear-gradient(
+      to right,
+      hsl(0 0% 0% / 0),
+      hsl(0 0% 0% / 1) 20%,
+      hsl(0 0% 0% / 1) 80%,
+      hsl(0 0% 0% / 0)
+    );
+  }
+  
+  .marquee--10 {
+    --marquee-item-width: 100px;
+    --marquee-item-height: 100px;
+    --marquee-duration: 45s;
+    --marquee-items: 10;
+  }
+  .marquee__item {
+    --marquee-item-offset: max(
+      calc(var(--marquee-item-width) * var(--marquee-items)),
+      calc(100% + var(--marquee-item-width))
+    );
+    --marquee-delay: calc(var(--marquee-duration) / var(--marquee-items) * (var(--marquee-items) - var(--marquee-item-index)) * -1);
+    position: absolute;
+    inset-inline-start: var(--marquee-item-offset);
+    transform: translateX(-50%);
+    animation: go linear var(--marquee-duration) var(--marquee-delay, 0s) infinite;
+  }
+  
+  .marquee__item:nth-child(4n) {
+    border-top-right-radius: 1rem;
+  }
+  
+  .marquee__item:nth-child(4n + 1) {
+    border-bottom-right-radius: 1rem;
+  }
+  
+  .marquee__item:nth-child(4n + 2) {
+    border-bottom-left-radius: 1rem;
+  }
+  
+  .marquee__item:nth-child(4n + 3) {
+    border-top-left-radius: 1rem;
+  }
+  
+  .marquee--10 .marquee__item:nth-of-type(1) {
+    --marquee-item-index: 1;
+  }
+  
+  .marquee--10 .marquee__item:nth-of-type(2) {
+    --marquee-item-index: 2;
+  }
+  
+  .marquee--10 .marquee__item:nth-of-type(3) {
+    --marquee-item-index: 3;
+  }
+  
+  .marquee--10 .marquee__item:nth-of-type(4) {
+    --marquee-item-index: 4;
+  }
+  
+  .marquee--10 .marquee__item:nth-of-type(5) {
+    --marquee-item-index: 5;
+  }
+  
+  .marquee--10 .marquee__item:nth-of-type(6) {
+    --marquee-item-index: 6;
+  }
+  
+  .marquee--10 .marquee__item:nth-of-type(7) {
+    --marquee-item-index: 7;
+  }
+  
+  .marquee--10 .marquee__item:nth-of-type(8) {
+    --marquee-item-index: 8;
+  } 
+  .marquee--10 .marquee__item:nth-of-type(9) {
+    --marquee-item-index: 9;
+  }  
+  .marquee--10 .marquee__item:nth-of-type(10) {
+    --marquee-item-index: 10;
+  }    
+  @keyframes go {
+    to {  
+      inset-inline-start: calc(var(--marquee-item-width) * -1);
+    }
+  }
   </style>
 </head>
   <body style="background-color: #1a1a1a;"> 
@@ -98,11 +189,11 @@
               </div>
           </div>
       </div>
-  </div>
-  <div class="container px-4 py-5 text-white" id="featured-3" style="font-family: 'Roboto Condensed', sans-serif;">
-    <h2 class="display-4 fw-bold lh-1 text-start pb-2 border-bottom" style="font-family: 'Raleway', sans-serif;">Personal Projects</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col">
+    </div>
+    <div class="container px-4 py-5 text-white" id="featured-3" style="font-family: 'Roboto Condensed', sans-serif;">
+      <h2 class="display-4 fw-bold lh-1 text-start pb-2 border-bottom" style="font-family: 'Raleway', sans-serif;">Personal Projects</h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
         <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
         </div>
@@ -132,74 +223,77 @@
           Play Game
         </a>
       </div>
+      </div>
     </div>
-  </div>
-  <div class="container my-5" style="background-color: white; border-radius: 15px;">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center justify-content-center shadow-lg">
-      <div class="container px-4 py-5" id="icon-grid">
-        <h1 class="display-4 fw-bold lh-1 text-body-emphasis text-center mb-4 border-bottom" style="font-family: 'Raleway', sans-serif;">Skills</h1>
-    
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-          <div class="col d-flex align-items-start">
-            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">C++</h3>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading.</p> -->
-            </div>
+    <div class="container px-4 py-5" id="icon-grid">
+      <h1 class="display-4 fw-bold lh-1 text-white text-center mb-4 border-bottom" style="font-family: 'Raleway', sans-serif;">Technologies</h1>
+      <div class="marquee marquee--10" >
+        <img class="marquee__item" src="./images/cpp-logo.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="./images/c-logo.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="./images/python-logo.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="./images/html5-logo.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="./images/javascript-logo.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="./images/typescript-logo.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="./images/file-type-reactjs.256x228.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="./images/mysql-original-wordmark.256x133.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="./images/github-mark-white.png" width="100" height="100" alt="">
+        <img class="marquee__item" src="images/bootstrap.256x256.png" width="100" height="100" alt="">
+      </div>
+    </div>
+    <div class="container py-4" style="font-family: 'Roboto Condensed', sans-serif;">
+      <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold" style="font-family: 'Raleway', sans-serif;">Student Analyst, Internship</h1>
+          <h3>Southwest Research Institute, San Antonio, Texas</h3>
+          <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+          <button class="btn btn-primary btn-lg" type="button">Example button</button>
+        </div>
+      </div>
+  
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 style="font-family: 'Raleway', sans-serif;">Army Reservist</h2>
+            <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
+            <button class="btn btn-outline-light" type="button">Example button</button>
           </div>
-          <div class="col d-flex align-items-start">
-            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"></use></svg>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">C</h3>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading.</p> -->
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Python</h3>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading.</p> -->
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"></use></svg>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Javascript</h3>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading.</p> -->
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#speedometer2"></use></svg>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Typescript</h3>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading.</p> -->
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#toggles2"></use></svg>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">HTML</h3>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading.</p> -->
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#geo-fill"></use></svg>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">React.js</h3>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading.</p> -->
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#tools"></use></svg>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">mySQL</h3>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading.</p> -->
-            </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+            <h2 style="font-family: 'Raleway', sans-serif;">Add borders</h2>
+            <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+            <button class="btn btn-outline-secondary" type="button">Example button</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="px-4 py-5 my-5 text-center">
+      <h1 class="display-5 fw-bold text-white" style="font-family: 'Raleway', sans-serif;">Lets Work Together!</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4 text-white" style="font-family: 'Roboto Condensed', sans-serif;">Ready to bring your ideas to life? Let’s work together to create something great. I’d love to help you make your vision a reality!</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+          <span class="mb-3 mb-md-0 text-white" style="font-family: 'Roboto Condensed', sans-serif;">2025 Noah Hoyt</span>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/noah-hoyt-18275a304"><img class="bi" width="30" height="30" src="./images/linkedin-original.256x256.png"></img></a></li>
+          <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/noahh.1018/"><img class="bi" width="30" height="30" src="./images/instagram.256x256.png"></img></a></li>
+          <li class="ms-3"><a class="text-body-secondary" href="https://github.com/NoahwHoyt/DevPortfolio.git"><img class="bi" width="30" height="30" src="./images/github-mark-white.png"></img></a></li>
+        </ul>
+      </footer>
+    </div>    
+    <script src="./js/index.js"></script>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
