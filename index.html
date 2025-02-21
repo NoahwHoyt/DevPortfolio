@@ -125,10 +125,17 @@
       inset-inline-start: calc(var(--marquee-item-width) * -1);
     }
   }
+    .expandable-container {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .expandable-container:hover {
+      transform: scale(1.05); /* Add the scaling effect */
+    }
   </style>
 </head>
   <body style="background-color: #1a1a1a;"> 
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 fixed-top" style="background-color: #1a1a1a;">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4" style="background-color: #1a1a1a;">
       <a href="./index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-5 link-body-emphasis text-decoration-none">
         <h1 style="font-family: 'Raleway', sans-serif; color: #80e0e0;">Noah Hoyt</h1>
       </a>
@@ -241,28 +248,41 @@
       </div>
     </div>
     <div class="container py-4" style="font-family: 'Roboto Condensed', sans-serif;">
-      <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="p-5 mb-4 bg-body-tertiary rounded-3 expandable-container">
         <div class="container-fluid py-5">
           <h1 class="display-5 fw-bold" style="font-family: 'Raleway', sans-serif;">Student Analyst, Internship</h1>
           <h3>Southwest Research Institute, San Antonio, Texas</h3>
-          <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-          <button class="btn btn-primary btn-lg" type="button">Example button</button>
+          <p class="col-lg-12 fs-5">In the sumer of 2024, I worked with the Defense & Intelligence Solutions Division in the Software Engineering Department
+            on an internal full-stack web development project to assist company engineering on field testing newly built antennas. The project, titled 'Webify EMDisplay,' 
+            utilized <span style="color: coral; font-weight: bold;">HTML</span>, <span style="color: coral; font-weight: bold;">CSS</span>, and <span style="color: coral; font-weight: bold;">Typescript</span> 
+            for the web client, and <span style="color: coral; font-weight: bold;">C++</span> and <span style="color: coral; font-weight: bold;">Python</span> for the backend. Additionally, 
+            libraries and frameworks such as <span style="color: coral; font-weight: bold;">React.js</span> and <span style="color: coral; font-weight: bold;">Bootstrap</span> were also used.
+          </p>
+          <!-- <button class="btn btn-primary btn-lg" type="button">More Details</button> -->
         </div>
       </div>
   
       <div class="row align-items-md-stretch">
-        <div class="col-md-6">
+        <div class="col-md-6 expandable-container">
           <div class="h-100 p-5 text-bg-dark rounded-3">
             <h2 style="font-family: 'Raleway', sans-serif;">Army Reservist</h2>
-            <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
-            <button class="btn btn-outline-light" type="button">Example button</button>
+            <h3>401 En. Company, Mustang, Oklahoma</h3>
+            <p>I am currently serving in the Army Reserves as a Bridge Crewmember. My duties involve conducting water crossing operations using the Ribbon Bridge. 
+              This task requires operating heavy equipment safely and in a timely manner, often under high stress environments. The relavent experience I have gathered 
+              from this includes <span style="color: coral; font-weight: bold;">Leadership</span>, <span style="color: coral; font-weight: bold;">Teamwork</span>, 
+              and <span style="color: coral; font-weight: bold;">Resilience</span>.
+            </p>
+            <!-- <button class="btn btn-outline-light" type="button">More Details</button> -->
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 expandable-container">
           <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-            <h2 style="font-family: 'Raleway', sans-serif;">Add borders</h2>
-            <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-            <button class="btn btn-outline-secondary" type="button">Example button</button>
+            <h2 style="font-family: 'Raleway', sans-serif;">Math Tutor</h2>
+            <h3>Cameron University, Lawton, Oklahoma</h3>
+            <p>As a university math tutor, I assist student in learning complex mathematic concepts. These concepts include College Algebra, Statistics, Trigonometry, and Calculus.
+              On some occasions, students have come to me with Physics, Chemistry, and Computer Science. 
+            </p>
+            <!-- <button class="btn btn-outline-secondary" type="button">Example button</button> -->
           </div>
         </div>
       </div>
